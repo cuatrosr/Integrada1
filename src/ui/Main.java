@@ -29,37 +29,15 @@ public class Main {
     return namesMaterials;
   }
 
-  public static double[] pricesMaterialsHomeCenterRequest(int totalMaterials, String namesMaterials[], Scanner sc){
-    double pricesMaterialsHomeCenter[] = new double[totalMaterials];
+  public static double[] pricesMaterialsRequest(int totalMaterials, String namesMaterials[], Scanner sc){
+    double pricesMaterials[] = new double[totalMaterials];
     System.out.println("Ingrese los precios de los materiales en " + PLACES[0] + ": ");
     for (int i = 0; i < totalMaterials; i++){
       System.out.print(namesMaterials[i] + ": ");
-      pricesMaterialsHomeCenter[i] = sc.nextDouble();
+      pricesMaterials[i] = sc.nextDouble();
       sc.nextLine();
     }
-    return pricesMaterialsHomeCenter;
-  }
-
-  public static double[] pricesMaterialsFerreteriaCentroRequest(int totalMaterials, String namesMaterials[], Scanner sc){
-    double pricesMaterialsFerreteriaCentro[] = new double[totalMaterials];
-    System.out.println("Ingrese los precios de los materiales en " + PLACES[1] + ": ");
-    for (int i = 0; i < totalMaterials; i++){
-      System.out.print(namesMaterials[i] + ": ");
-      pricesMaterialsFerreteriaCentro[i] = sc.nextDouble();
-      sc.nextLine();
-    }
-    return pricesMaterialsFerreteriaCentro;
-  }
-
-  public static double[] pricesMaterialsFerreteriaBarrioRequest(int totalMaterials, String namesMaterials[], Scanner sc){
-    double pricesMaterialsFerreteriaBarrio[] = new double[totalMaterials];
-    System.out.println("Ingrese los precios de los materiales en " + PLACES[2] + ": ");
-    for (int i = 0; i < totalMaterials; i++){
-      System.out.print(namesMaterials[i] + ": ");
-      pricesMaterialsFerreteriaBarrio[i] = sc.nextDouble();
-      sc.nextLine();
-    }
-    return pricesMaterialsFerreteriaBarrio;
+    return pricesMaterials;
   }
 
   public static int[] amountMaterialsRequest(int totalMaterials, String namesMaterials[], Scanner sc){
@@ -105,9 +83,9 @@ public class Main {
     Scanner sc = new Scanner(System.in);
     int totalMaterials = totalMaterialsRequest(sc);
     String namesMaterials[] = namesMaterialsRequest(totalMaterials, sc);
-    double pricesMaterialsHomeCenter[] = pricesMaterialsHomeCenterRequest(totalMaterials, namesMaterials, sc);
-    double pricesMaterialsFerreteriaCentro[] = pricesMaterialsFerreteriaCentroRequest(totalMaterials, namesMaterials, sc);
-    double pricesMaterialsFerreteriaBarrio[] = pricesMaterialsFerreteriaBarrioRequest(totalMaterials, namesMaterials, sc);
+    double pricesMaterialsHomeCenter[] = pricesMaterialsRequest(totalMaterials, namesMaterials, sc);
+    double pricesMaterialsFerreteriaCentro[] = pricesMaterialsRequest(totalMaterials, namesMaterials, sc);
+    double pricesMaterialsFerreteriaBarrio[] = pricesMaterialsRequest(totalMaterials, namesMaterials, sc);
     int amountMaterials[] = amountMaterialsRequest(totalMaterials, namesMaterials, sc);
     String typeConstruction[] = typeConstructionRequest(totalMaterials, namesMaterials, sc);
     totalPaymentPlaces(totalMaterials, pricesMaterialsHomeCenter, pricesMaterialsFerreteriaCentro, pricesMaterialsFerreteriaBarrio, typeConstruction, CONSTRUCTION, amountMaterials);

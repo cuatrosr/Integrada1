@@ -33,7 +33,6 @@ public class Operation {
     return suma;
   }
 
-
   public static double totalPaymentFerreteriaBarrio(int totalMaterials, double[] pricesMaterialsFerreteriaBarrio, String[] typeConstruction, String[] CONSTRUCTION, int[] amountMaterials){
     double typeConstructionPayment = typeConstructionPaymentRequest(totalMaterials, typeConstruction, CONSTRUCTION);
     double suma = 0;
