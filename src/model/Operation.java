@@ -2,6 +2,14 @@ package model;
 
 public class Operation {
 
+  /**
+  * Method that return the ammount of type of construction <br>
+  * <b>pre: </b>
+  * <b>post: </b> return the ammount of type of construction.
+  *@param totalMaterials totalmaterials != 0 && totalMaterials > 0.
+  *@param typeConstruction typeConstruction != null && typeConstruction == "obra negra" || "obra blanca" || "pintura"
+  *@param CONSTRUCTION constant.
+  */
   public static double typeConstructionPaymentRequest(int totalMaterials, String[] typeConstruction, String[] CONSTRUCTION){
     double typeConstructionPayment = 0;
     for (int i = 0; i < totalMaterials; i++){
@@ -12,6 +20,13 @@ public class Operation {
     return typeConstructionPayment;
   }
 
+  /**
+  * Method that return the ammount to pay of ordering home <br>
+  * <b>pre: </b>
+  * <b>post: </b> return the ammount to pay of ordering home.
+  *@param suma suma != 0
+  *@param location location == "norte" || "sur" || "centro"
+  */
   public static double orderingHome(double suma, String location){
     double domicilio = 0;
     switch (location){
@@ -38,6 +53,17 @@ public class Operation {
     return domicilio;
   }
 
+  /**
+  * Method that return the ammount to pay for HomeCenter <br>
+  * <b>pre: </b>
+  * <b>post: </b> return the ammount to pay for HomeCenter.
+  *@param totalMaterials totalmaterials != 0 && totalMaterials > 0.
+  *@param pricesMaterialsHomeCenter pricesMaterialsHomeCenter != null.
+  *@param typeConstruction typeConstruction != null && typeConstruction == "obra negra" || "obra blanca" || "pintura"
+  *@param CONSTRUCTION constant.
+  *@param amountMaterials amountMaterials != null.
+  *@param location location == "norte" || "sur" || "centro"
+  */
   public static double totalPaymentHomeCenter(int totalMaterials, double[] pricesMaterialsHomeCenter, String[] typeConstruction, String[] CONSTRUCTION, int[] amountMaterials, String location){
     double typeConstructionPayment = typeConstructionPaymentRequest(totalMaterials, typeConstruction, CONSTRUCTION);
     double suma = 0;
@@ -50,6 +76,17 @@ public class Operation {
     return suma;
   }
 
+  /**
+  * Method that return the ammount to pay for Ferreteria centro <br>
+  * <b>pre: </b>
+  * <b>post: </b> return the ammount to pay for Ferreteria centro.
+  *@param totalMaterials totalmaterials != 0 && totalMaterials > 0.
+  *@param pricesMaterialsFerreteriaCentro pricesMaterialsFerreteriaCentro != null.
+  *@param typeConstruction typeConstruction != null && typeConstruction == "obra negra" || "obra blanca" || "pintura"
+  *@param CONSTRUCTION constant.
+  *@param amountMaterials amountMaterials != null.
+  *@param location location == "norte" || "sur" || "centro"
+  */
   public static double totalPaymentFerreteriaCentro(int totalMaterials, double[] pricesMaterialsFerreteriaCentro, String[] typeConstruction, String[] CONSTRUCTION, int[] amountMaterials, String location){
     double typeConstructionPayment = typeConstructionPaymentRequest(totalMaterials, typeConstruction, CONSTRUCTION);
     double suma = 0;
@@ -62,6 +99,17 @@ public class Operation {
     return suma;
   }
 
+  /**
+  * Method that return the ammount to pay for Ferreteria Barrio <br>
+  * <b>pre: </b>
+  * <b>post: </b> return the ammount to pay for Ferreteria Barrio.
+  *@param totalMaterials totalmaterials != 0 && totalMaterials > 0.
+  *@param pricesMaterialsFerreteriaBarrio pricesMaterialsFerreteriaBarrio != null.
+  *@param typeConstruction typeConstruction != null && typeConstruction == "obra negra" || "obra blanca" || "pintura"
+  *@param CONSTRUCTION constant.
+  *@param amountMaterials amountMaterials != null.
+  *@param location location == "norte" || "sur" || "centro"
+  */
   public static double totalPaymentFerreteriaBarrio(int totalMaterials, double[] pricesMaterialsFerreteriaBarrio, String[] typeConstruction, String[] CONSTRUCTION, int[] amountMaterials, String location){
     double typeConstructionPayment = typeConstructionPaymentRequest(totalMaterials, typeConstruction, CONSTRUCTION);
     double suma = 0;
@@ -74,6 +122,13 @@ public class Operation {
     return suma;
   }
 
+  /**
+  * Method that return the list of materials by type <br>
+  * <b>pre: </b>
+  * <b>post: </b> return the list of materials by type.
+  *@param totalMaterials totalmaterials != 0 && totalMaterials > 0.
+  *@param typeConstruction typeConstruction != null && typeConstruction == "obra negra" || "obra blanca" || "pintura"
+  */
   public static int[] deployAddonsCountRequest(int totalMaterials, String[] typeConstruction){
     int countA = 0;
     int countB = 0;

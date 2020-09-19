@@ -12,6 +12,12 @@ public class Main {
   private final static double SOFT_CONSTRUCTION = 2600000;
   private final static double PAINT = 980000;
 
+  /**
+  * Method that ask the amount of materials to buy. <br>
+  * <b>pre: </b>
+  * <b>post: </b> save the amount of materials to buy.
+  * @param Scanner object that allow input to be captured. sc != null. <br>
+  */
   public static int totalMaterialsRequest(Scanner sc){
     System.out.print("Ingrese la cantidad de materiales a comprar: ");
     int totalMaterials = sc.nextInt();
@@ -19,6 +25,13 @@ public class Main {
     return totalMaterials;
   }
 
+  /**
+  * Method that ask the names of the materials. <br>
+  * <b>pre: </b>
+  * <b>post: </b> save the names of the materials.
+  *@param totalMaterials int that storage the amount of materials. totalmaterials != 0 && totalMaterials > 0.
+  *@param Scanner object that allow input to be captured. sc != null. <br>
+  */
   public static String[] namesMaterialsRequest(int totalMaterials, Scanner sc){
     String namesMaterials[] = new String[totalMaterials];
     System.out.println("Ingrese los nombres de los materiales: ");
@@ -30,6 +43,15 @@ public class Main {
     return namesMaterials;
   }
 
+  /**
+  * Method that ask the names of the materials. <br>
+  * <b>pre: </b>
+  * <b>post: </b> save the names of the materials.
+  *@param totalMaterials totalmaterials != 0 && totalMaterials > 0.
+  *@param namesMaterials namesMaterials != null.
+  *@param Scanner object that allow input to be captured. sc != null. <br>
+  *@param count accountant 0 <= count <=2
+  */
   public static double[] pricesMaterialsRequest(int totalMaterials, String namesMaterials[], Scanner sc, int count){
     double pricesMaterials[] = new double[totalMaterials];
     System.out.println("Ingrese los precios de los materiales en " + PLACES[count] + ": ");
@@ -41,6 +63,15 @@ public class Main {
     return pricesMaterials;
   }
 
+  /**
+  * Method that ask the ammount of an specific materials. <br>
+  * <b>pre: </b>
+  * <b>post: </b> save the amount of an specific materials.
+  *@param totalMaterials totalmaterials != 0 && totalMaterials > 0.
+  *@param namesMaterials namesMaterials != null.
+  *@param Scanner object that allow input to be captured. sc != null. <br>
+  *@param count accountant 0 <= count <=2
+  */
   public static int[] amountMaterialsRequest(int totalMaterials, String namesMaterials[], Scanner sc){
     int amountMaterials[] = new int[totalMaterials];
     System.out.println("Ingrese la cantidad de materiales para: ");
@@ -52,6 +83,12 @@ public class Main {
     return amountMaterials;
   }
 
+  /**
+  * Method that ask the location of the costomer. <br>
+  * <b>pre: </b>
+  * <b>post: </b> save the location of the costomer.
+  *@param Scanner object that allow input to be captured. sc != null. <br>
+  */
   public static String locationRequest(Scanner sc){
     System.out.print("Ingrese la ubicacion del inmueble (Norte, Centro, Sur): ");
     String location = sc.nextLine();
@@ -59,6 +96,14 @@ public class Main {
     return location;
   }
 
+  /**
+  * Method that ask the type of construction of an specific materials. <br>
+  * <b>pre: </b>
+  * <b>post: </b> save the type of construction of an specific materials.
+  *@param totalMaterials totalmaterials != 0 && totalMaterials > 0.
+  *@param namesMaterials namesMaterials != null.
+  *@param Scanner object that allow input to be captured. sc != null. <br>
+  */
   public static String[] typeConstructionRequest(int totalMaterials, String namesMaterials[], Scanner sc){
     String typeConstruction[] = new String[totalMaterials];
     System.out.println("Escriba para que necesita el material('obra negra', 'obra blanca', 'pintura'): ");
@@ -69,6 +114,20 @@ public class Main {
     return typeConstruction;
   }
 
+  /**
+  * Method that print the total pay of the materials. <br>
+  * <b>pre: </b>
+  * <b>post: </b> print the total pay of the materials.
+  *@param totalMaterials totalmaterials != 0 && totalMaterials > 0.
+  *@param pricesMaterialsHomeCenter pricesMaterialsHomeCenter != null.
+  *@param pricesMaterialsFerreteriaCentro pricesMaterialsFerreteriaCentro != null.
+  *@param pricesMaterialsFerreteriaBarrio pricesMaterialsFerreteriaBarrio != null.
+  *@param typeConstruction typeConstruction != null && typeConstruction == "obra negra" || "obra blanca" || "pintura"
+  *@param CONSTRUCTION constant
+  *@param amountMaterials amountMaterials != null.
+  *@param namesMaterials namesMaterials != null.
+  *@param location location == "norte" || "sur" || "centro"
+  */
   public static void totalPaymentPlaces(int totalMaterials, double[] pricesMaterialsHomeCenter, double[] pricesMaterialsFerreteriaCentro, double[] pricesMaterialsFerreteriaBarrio, String[] typeConstruction, String[] CONSTRUCTION, int[] amountMaterials, String location){
     for (int i = 0; i < PLACES.length; i++){
       System.out.print("El valor total a pagar en " + PLACES[i] + " es de: ");
@@ -86,6 +145,17 @@ public class Main {
     }
   }
 
+  /**
+  * Method that print the better place to buy the materials. <br>
+  * <b>pre: </b>
+  * <b>post: </b> print the better place to buy the materials.
+  *@param totalMaterials totalmaterials != 0 && totalMaterials > 0.
+  *@param pricesMaterialsHomeCenter pricesMaterialsHomeCenter != null.
+  *@param pricesMaterialsFerreteriaCentro pricesMaterialsFerreteriaCentro != null.
+  *@param pricesMaterialsFerreteriaBarrio pricesMaterialsFerreteriaBarrio != null.
+  *@param amountMaterials amountMaterials != null.
+  *@param location object that allow input to be captured. sc != null. <br>
+  */
   public static void betterPaymentRequest( int totalMaterials, double[] pricesMaterialsHomeCenter, double[] pricesMaterialsFerreteriaBarrio, double[] pricesMaterialsFerreteriaCentro, int[] amountMaterials, String[] namesMaterials, String location){
     double betterPaymentMaterial[] = new double[totalMaterials];
     double suma = 0;
@@ -106,6 +176,15 @@ public class Main {
     System.out.println("Debera pagar entonces: " + suma);
   }
 
+  /**
+  * Method that print the materials by type of construction <br>
+  * <b>pre: </b>
+  * <b>post: </b> print the materials by type of construction
+  *@param totalMaterials totalmaterials != 0 && totalMaterials > 0.
+  *@param typeConstruction typeConstruction != null && typeConstruction == "obra negra" || "obra blanca" || "pintura"
+  *@param namesMaterials namesMaterials != null.
+  *@param deployAddonsCount deployAddons != null
+  */
   public static void deployAddons(int totalMaterials, String[] typeConstruction, String[] namesMaterials, int[] deployAddonsCount){
     String roughAddons[] = new String[deployAddonsCount[0]];
     String softAddons[] = new String[deployAddonsCount[1]];
